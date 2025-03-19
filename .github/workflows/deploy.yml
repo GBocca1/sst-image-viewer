@@ -1,0 +1,28 @@
+name: Deploy su Server Locale
+
+on:
+  push:
+    branches: ["main"]  # Il deploy avviene automaticamente su push nella branch main
+  workflow_dispatch:  # Permette il deploy manuale
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: 📥 Clona il repository
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Crea il file .env
+        run: |
+          echo "REACT_APP_API_URL=http://192.168.1.225:8002" > frontend/.env
+
+      - name: 🐳 Avvia Docker Compose
+        run: |
+          docker compose down  # Ferma i container esistenti
+          docker compose pull  # Aggiorna le immagini (se usi un registry)
+          docker compose build  # Ricostruisce i container
+          docker compose up -d  # Avvia tutto in background
+
+      - name: 🧹 Rimuove le vecchie immagini non utilizzate
+        run: docker image prune -af
