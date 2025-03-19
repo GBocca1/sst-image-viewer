@@ -1,0 +1,169 @@
+/* Centrare il titolo */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* 3 colonne con immagini più grandi */
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 3 colonne */
+  gap: 15px;
+  padding: 20px;
+  justify-items: center;
+  /* Centra le immagini */
+}
+
+/* Contenitore dell'immagine */
+.image-item {
+  text-align: center;
+}
+
+.image-item img {
+  width: 400px;
+  /* Larghezza fissa per le immagini */
+  height: 400px;
+  /* Altezza fissa per le immagini */
+  object-fit: cover;
+  /* Per mantenere il rapporto delle immagini */
+  margin: 10px;
+  /* Distanza tra le immagini */
+  cursor: pointer;
+  transition: transform 0.2s;
+  /* Effetto di transizione al passaggio del mouse */
+}
+
+.image-item img:hover {
+  transform: scale(1.10);
+  /* Effetto zoom */
+}
+
+/* Nome dell'immagine */
+.image-name {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Modal per l'immagine ingrandita */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Sfondo trasparente scuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Mostra la modale sopra il resto del contenuto */
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: 0px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+
+.enlarged-image {
+  max-width: 90vw;
+  /* Massima larghezza al 90% della larghezza della finestra */
+  max-height: 80vh;
+  /* Massima altezza all'80% dell'altezza della finestra */
+  width: auto;
+  /* Mantieni il rapporto di aspetto */
+  height: auto;
+  /* Mantieni il rapporto di aspetto */
+  object-fit: contain;
+  /* Assicurati che l'immagine non venga distorta */
+  margin-bottom: 20px;
+}
+
+.image-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image-navigation button {
+  font-size: 34px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.search-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  /* Allinea gli elementi in riga */
+  align-items: center;
+  /* Li centra verticalmente */
+  gap: 15px;
+  /* Distanza tra titolo e input */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-input {
+  width: 170px;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.main-content {
+  margin-top: 100px;
+  /* Sposta tutto in basso */
+  text-align: center;
+}
+
+.spinner {
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-top: 6px solid #333;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+
+  /* Centrare lo spinner */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

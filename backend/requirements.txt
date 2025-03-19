@@ -1,0 +1,15 @@
+fastapi[standard]
+uvicorn[standard]
+pandas
+pydantic==2.10.4
+pydantic_settings==2.7.0
+Pyrebase4==4.8.0
+Requests==2.32.3
+SQLAlchemy==2.0.34
+setuptools==75.8.0
+pyodbc==5.2.0
+regex
+pymongo
+motor
+mysql-connector-python
+openpyxl
